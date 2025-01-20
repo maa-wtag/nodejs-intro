@@ -18,6 +18,12 @@ process.on("exit", (code) => {
   console.log(`About to exit with: ${code}`);
 });
 
-process.exit();
-
 console.log("HOLA");
+
+// process pbject
+process.on("uncaughtException", (err) => {
+  console.error("Unhandled exception:", err);
+});
+throw new Error("Oops!");
+
+process.exit();
