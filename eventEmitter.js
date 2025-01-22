@@ -43,3 +43,40 @@ myEmitter.on("greet", (name) => {
 
 // Emit the event
 myEmitter.emit("greet", "Node.js");
+
+// event emitter
+import { EventEmitter } from "events";
+
+const newEmitter = new EventEmitter();
+
+newEmitter.on("user-created", (user) => {
+  console.log("A new user was created:", user.name);
+  // Send a welcome email, update analytics, etc.
+});
+
+const newUser = { id: 123, name: "Alice" };
+newEmitter.emit("user-created", newUser); // Triggers the listener registered for 'user-created'
+
+// emitter
+const EventEmitter = require("events");
+const anotherEmitter = new EventEmitter();
+
+anotherEmitter.on("myEvent", () => {
+  console.log("Event triggered!");
+});
+
+anotherEmitter.emit("myEvent");
+
+// emmit
+const EventEmitter = require("events");
+
+// Create an EventEmitter instance
+const eEmitter = new EventEmitter();
+
+// Register an event listener
+eEmitter.on("greet", (name) => {
+  console.log(`Hello, ${name}!`);
+});
+
+// Emit the event
+eEmitter.emit("greet", "Node.js");
